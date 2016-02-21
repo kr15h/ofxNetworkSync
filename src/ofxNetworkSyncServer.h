@@ -23,6 +23,7 @@ class ofxNetworkSyncServer : ofThread{
 public:
 	ofEvent<ofxNetworkSyncServerMessage> messageReceived;
 	ofEvent<int> newClientConnected;
+	ofEvent<int> clientDisconnected;
 	
 	ofxNetworkSyncServer();
 	~ofxNetworkSyncServer();

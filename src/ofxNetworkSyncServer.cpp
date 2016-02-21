@@ -213,7 +213,6 @@ bool ofxNetworkSyncServer::hasClients(){
 	return clientStates.size() > 0;
 }
 
-
 void ofxNetworkSyncServer::onClientDisconnected(int & clientId){
 	for(vector<ofxNetworkSyncClientState *>::iterator it = clientStates.begin(); it != clientStates.end(); ){
 		ofxNetworkSyncClientState * s = *it;
@@ -224,9 +223,8 @@ void ofxNetworkSyncServer::onClientDisconnected(int & clientId){
 			it++;
 		}
 	}
+	ofNotifyEvent(clientDisconnected, clientId, this);
 }
-
-
 
 void ofxNetworkSyncServer::startRecalibration(){
 	for (auto & state : clientStates) {
